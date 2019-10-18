@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/akhilerm/blkid/topology"
+	"github.com/akhilerm/device-topology/topology"
 	"os"
 )
 
