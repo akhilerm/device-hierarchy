@@ -65,5 +65,15 @@ func (d *Device) GetDependents() (DependentDevices, error) {
 		dependents.Slaves = append(dependents.Slaves, slaves...)
 	}
 
+	// adding /dev prefix
+	for i, _ := range dependents.Slaves {
+		dependents.Slaves[i] = "/dev/" + dependents.Slaves[i]
+	}
+
+	// adding /dev prefix
+	for i, _ := range dependents.Holders {
+		dependents.Holders[i] = "/dev/" + dependents.Holders[i]
+	}
+
 	return dependents, nil
 }
