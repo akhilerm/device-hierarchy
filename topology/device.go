@@ -6,6 +6,8 @@ import (
 	"strings"
 )
 
+var sysFSDirectoryPath = "/sys/"
+
 type Device struct {
 	// Path of the blockdevice. eg: /dev/sda, /dev/dm-0
 	Path string
@@ -34,7 +36,7 @@ func (d *Device) GetDependents() (DependentDevices, error) {
 	dependents := DependentDevices{}
 	blockDeviceName := strings.Replace(d.Path, "/dev/", "", 1)
 
-	blockDeviceSymLink := "/sys/class/block/" + blockDeviceName
+	blockDeviceSymLink := sysFSDirectoryPath + "class/block/" + blockDeviceName
 
 	sysPath, err := filepath.EvalSymlinks(blockDeviceSymLink)
 	if err != nil {

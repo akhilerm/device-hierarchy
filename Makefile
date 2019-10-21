@@ -7,4 +7,4 @@ build:
 	@go build -o topo main.go
 
 image: build
-	@sudo docker build -t device-topology:ci .
+	@sudo docker build -t akhilerm/device-topology:ci .
