@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/akhilerm/device-topology/topology"
+	"github.com/akhilerm/device-topology/hierarchy"
 	"os"
 )
 
@@ -12,7 +12,7 @@ func main() {
 		os.Exit(0)
 	}
 	deviceName := os.Args[1]
-	dev := topology.Device{deviceName}
+	dev := hierarchy.Device{deviceName}
 	dep, err := dev.GetDependents()
 	if err != nil {
 		fmt.Println(err)
